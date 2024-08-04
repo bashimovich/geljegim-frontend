@@ -1,0 +1,70 @@
+import React, { useEffect, useState } from 'react'
+import './Multimedia.css'
+import { axiosInstance } from '../../utils/axiosInstance';
+import { useNavigate } from 'react-router-dom';
+import HumanReadableDate from '../../utils/HumanReadableDate';
+import { useTranslation } from 'react-i18next';
+
+function Multimedia() {
+    const {t, i18n} = useTranslation()
+    const navigate = useNavigate()
+    const [MultimediaArticle, setMultimediaArticle] = useState([])
+    useEffect(() => {
+        axiosInstance
+            .get(`/medias`)
+            .then((res) => {
+                setMultimediaArticle(res.data)
+            })
+            .catch((err) => {
+            console.log(err);
+            });
+    }, [])
+    // function handleClick(id) {
+    //    navigate('article/', {state: id}) 
+    // }
+    function ShowAll() {
+      navigate("/media");
+    }
+  return (
+    <div className="container">
+        <div className="multimedia">
+            <div className="multimedia__header">
+                <div className="multimedia__title">
+                    <p>{t('multimedia')}</p>
+                </div>
+                <div className="multimedia__all">
+                    <a onClick={() => {ShowAll()}}>{t('showall')}</a>
+                </div>
+            </div>
+            <div className="multimedia__cards">
+                {
+                    MultimediaArticle.map((item, index) => {return(
+                        <div className="multimedia__card" key={index}>
+                            <div className="multimedia__card__img">
+                                <img src={item.thumbnail} alt="" />
+                            </div>
+                            <div className="multimedia__card__date">
+                                <p>
+                                    <HumanReadableDate date={item.created_at} />
+                                </p>
+                            </div>
+                            <div className="multimedia__card__title">
+                                <p>{
+                                    i18n.language === 'tm'?
+                                        item.title_tm:
+                                    i18n.language === 'ru'?
+                                        item.title_ru:
+                                    i18n.language === 'en'?
+                                        item.title_en:null
+                                }</p>
+                            </div>
+                        </div>
+                    )})
+                }
+            </div>
+        </div>
+    </div>
+  )
+}
+
+export default Multimedia
