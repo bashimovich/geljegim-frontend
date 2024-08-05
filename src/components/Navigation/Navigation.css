@@ -58,16 +58,18 @@
     padding: 1rem;
 }
 
-.parent__category:hover{
+.parent__category:hover {
     background-color: #fff;
     color: #0a8f08;
     cursor: pointer;
 }
-.parent__category:hover > a{
+
+.parent__category:hover>a {
     background-color: #fff;
     color: #0a8f08;
 }
-.parent__category:hover > svg{
+
+.parent__category:hover>svg {
     background-color: #fff;
     color: #0a8f08;
 }
@@ -93,40 +95,41 @@
 .menu__icon {
     display: none;
 }
-.parent__category{
+
+.parent__category {
     position: relative;
 }
-.parent__category a{
+
+.parent__category a {
     text-transform: uppercase;
 }
 
-.sub__category{
+.sub__category {
     position: absolute;
     background-color: #fff;
     top: 3.3rem;
     width: 12rem;
     visibility: hidden;
     opacity: 0;
-    box-shadow: 
-    2px 0 2px -1px rgba(138, 137, 137, 0.3),  
-    -2px 0 2px -1px rgba(134, 134, 134, 0.3), 
-    0 2px 2px -1px rgba(131, 129, 129, 0.3);  
+    box-shadow: 2px 0 2px -1px rgba(138, 137, 137, 0.3), -2px 0 2px -1px rgba(134, 134, 134, 0.3), 0 2px 2px -1px rgba(131, 129, 129, 0.3);
     border: none;
     outline: none;
     z-index: 1000000;
 }
-.parent__category:hover > .sub__category{
+
+.parent__category:hover>.sub__category {
     visibility: visible;
     opacity: 1;
 }
 
-.sub__category p{
+.sub__category p {
     color: rgb(131, 129, 129);
     font-size: 1.4rem;
     padding: .7rem 1rem;
     margin: .5rem 0;
 }
-.sub__category p:hover{
+
+.sub__category p:hover {
     color: #fff;
     background-color: #0a8f08;
 }
@@ -208,9 +211,32 @@
 .navigation__logo img {
     width: 100%;
 }
-@media only screen and (max-width: 540px) {
 
+@media only screen and (max-width: 540px) {
     .navigation__logo {
         min-width: 30%;
     }
+}
+
+.sub_parent_category {
+    position: relative;
+    transition: all .7s ease;
+}
+
+.child_category {
+    position: absolute;
+    left: 100%;
+    background-color: white;
+    /* display: none; */
+    visibility: hidden;
+    opacity: 0;
+    top: 0;
+    transition: all .7s ease;
+    min-width: 150px;
+    box-shadow: 1px 2px 5px rgb(194, 193, 193);
+}
+
+.sub_parent_category:hover .child_category {
+    visibility: visible;
+    opacity: 1;
 }

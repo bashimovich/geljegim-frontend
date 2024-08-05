@@ -52,40 +52,41 @@ function Navigation() {
                         </li>
                         <li className='parent__category'>
                             <a className='nav__link'>
-                                {t('university')}
+                                {t('school')}
                             </a>
                             <div className='sub__category'>
-                                <p onClick={() => {goList("univer")}} >
+                                <p onClick={() => {goList("univer")}}  className='sub_parent_category'>
                                 {t('university')}
+                                    <div className='child_category'>
+                                        <p onClick={() => {goList("univer")}} >
+                                            {t('university')}
+                                        </p>
+                                        <p onClick={() => {goList("uni_news")}} >
+                                            {t('news')}
+                                        </p>
+                                    </div>
                                 </p>
-                                <p onClick={() => {goList("uni_news")}} >
-                                    {t('news')}
-                                </p>
-                            </div>
-                        </li>
-                        <li className='parent__category'>
-                            <a className='nav__link'>
-                                {t('vacational')}
-                            </a>
-                            <div className='sub__category'>
-                                <p onClick={() => {goList("vacational")}} >
+                                <p onClick={() => {goList("vacational")}}  className='sub_parent_category' >
                                     {t('vacational')}
+                                    <div className='child_category'>
+                                        <p onClick={() => {goList("vacational")}} >
+                                            {t('vacational')}
+                                        </p>
+                                        <p onClick={() => {goList("vac_news")}} >
+                                            {t('news')}
+                                        </p>
+                                    </div>
                                 </p>
-                                <p onClick={() => {goList("vac_news")}} >
-                                    {t('news')}
-                                </p>
-                            </div>
-                        </li>
-                        <li className='parent__category'>
-                            <a className='nav__link'>
-                                {t('lyceum')}
-                            </a>
-                            <div className='sub__category'>
-                                <p onClick={() => {goList("lycee")}} >
+                                <p onClick={() => {goList("lycee")}}  className='sub_parent_category' >
                                     {t('lyceum')}
-                                </p>
-                                <p onClick={() => {goList("vac_news")}} >
-                                    {t('news')}
+                                    <div className='child_category'>
+                                        <p onClick={() => {goList("lycee")}} >
+                                            {t('lyceum')}
+                                        </p>
+                                        <p onClick={() => {goList("vac_news")}} >
+                                            {t('news')}
+                                        </p>
+                                    </div>
                                 </p>
                             </div>
                         </li>
@@ -107,6 +108,11 @@ function Navigation() {
                         <li className='parent__category'>
                             <a href="https://kesgitle.ticit.edu.tm/" target='_blank'>
                                 {t('kesgitle')}
+                            </a>
+                        </li>
+                        <li className='parent__category'>
+                            <a href="#" target='_blank'>
+                                {t('work')}
                             </a>
                         </li>
                         <li className='parent__category'>

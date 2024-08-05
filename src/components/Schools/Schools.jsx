@@ -5,6 +5,8 @@ import { axiosInstance } from '../../utils/axiosInstance'
 import HumanReadableDate from '../../utils/HumanReadableDate'
 import DOMPurify from "dompurify";
 import { useTranslation } from 'react-i18next'
+import { ShimmerCategoryItems } from 'shimmer-effects-react';
+
 
 
 function Schools() {
@@ -12,19 +14,30 @@ function Schools() {
     const navigate = useNavigate()
     const [UniverArticle, setUniverArticle] = useState([])
     const [VacationalArticle, setVacationalArticle] = useState([])
+
+    const [VacationalLoading, setVacationalLoading] = useState(true)
+    const [UniverLoading, setUniverLoading] = useState(true)
+
+
+
+
     useEffect(() => {
+        setUniverLoading(true)
         axiosInstance
             .get(`homeuniver-article/`)
             .then((res) => {
                 setUniverArticle(res.data)
+                setUniverLoading(false)
             })
             .catch((err) => {
             console.log(err);
             });
+        setVacationalLoading(true)
         axiosInstance
             .get(`homevacational-article/`)
             .then((res) => {
                 setVacationalArticle(res.data)
+                setVacationalLoading(false)
             })
             .catch((err) => {
             console.log(err);
@@ -50,6 +63,9 @@ function Schools() {
                 </div>
                 <div className="schools__cards">
                     {
+                        UniverLoading ? 
+                            <ShimmerCategoryItems className='schools_shimmer' mode="light" itemsGap={20} items={6} />:
+
                         UniverArticle.map((item, index)=>{return(
                             <div key={index} className="schools__card">
                                 <div className="schools__card__img"  style={{ backgroundImage: `url(${item.images_for_web[0].src})` }}></div>
@@ -98,6 +114,9 @@ function Schools() {
                 </div>
                 <div className="schools__cards">
                     {
+                         VacationalLoading ? 
+                            <ShimmerCategoryItems className='schools_shimmer' mode="light" itemsGap={20} items={6} />:
+
                         VacationalArticle.map((item, index)=>{return(
                             <div key={index} className="schools__card">
                                 <div className="schools__card__img"  style={{ backgroundImage: `url(${item.images_for_web[0].src})` }}></div>

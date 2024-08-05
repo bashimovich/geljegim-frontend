@@ -4,16 +4,21 @@ import { axiosInstance } from '../../utils/axiosInstance';
 import { useNavigate } from 'react-router-dom';
 import HumanReadableDate from '../../utils/HumanReadableDate';
 import { useTranslation } from 'react-i18next';
+import { ShimmerDiv, ShimmerTitle } from 'shimmer-effects-react';
+
 
 function Multimedia() {
     const {t, i18n} = useTranslation()
     const navigate = useNavigate()
     const [MultimediaArticle, setMultimediaArticle] = useState([])
+    const [MultimediaLoading, setMultimediaLoading] = useState(true)
     useEffect(() => {
+        setMultimediaLoading(true)
         axiosInstance
             .get(`/medias`)
             .then((res) => {
                 setMultimediaArticle(res.data)
+                setMultimediaLoading(false)
             })
             .catch((err) => {
             console.log(err);
@@ -38,6 +43,13 @@ function Multimedia() {
             </div>
             <div className="multimedia__cards">
                 {
+                    MultimediaLoading ? 
+                    <>
+                        <ShimmerDiv mode="light" rounded={1} className='daily_main_img_shimmer' />
+                        <ShimmerDiv mode="light" rounded={1} className='daily_main_img_shimmer' />
+                        <ShimmerDiv mode="light" rounded={1} className='daily_main_img_shimmer' />
+                        <ShimmerDiv mode="light" rounded={1} className='daily_main_img_shimmer' />
+                    </>:
                     MultimediaArticle.map((item, index) => {return(
                         <div className="multimedia__card" key={index}>
                             <div className="multimedia__card__img">
