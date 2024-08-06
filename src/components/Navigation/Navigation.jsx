@@ -55,7 +55,7 @@ function Navigation() {
                                 {t('school')}
                             </a>
                             <div className='sub__category'>
-                                <p onClick={() => {goList("univer")}}  className='sub_parent_category'>
+                                <p className='sub_parent_category'>
                                 {t('university')}
                                     <div className='child_category'>
                                         <p onClick={() => {goList("univer")}} >
@@ -66,7 +66,7 @@ function Navigation() {
                                         </p>
                                     </div>
                                 </p>
-                                <p onClick={() => {goList("vacational")}}  className='sub_parent_category' >
+                                <p className='sub_parent_category' >
                                     {t('vacational')}
                                     <div className='child_category'>
                                         <p onClick={() => {goList("vacational")}} >
@@ -77,13 +77,13 @@ function Navigation() {
                                         </p>
                                     </div>
                                 </p>
-                                <p onClick={() => {goList("lycee")}}  className='sub_parent_category' >
+                                <p className='sub_parent_category' >
                                     {t('lyceum')}
                                     <div className='child_category'>
                                         <p onClick={() => {goList("lycee")}} >
                                             {t('lyceum')}
                                         </p>
-                                        <p onClick={() => {goList("vac_news")}} >
+                                        <p onClick={() => {goList("lycee_news")}} >
                                             {t('news')}
                                         </p>
                                     </div>

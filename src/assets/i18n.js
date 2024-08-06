@@ -31,7 +31,7 @@ i18n
                     "hukuk": "REGULATION",
                     "lyceum": "LYCEUM",
                     "school": "SCHOOLS",
-                    "work": "WORKS",
+                    "work": "JOBS",
                 }
             },
             tm: {
@@ -56,8 +56,8 @@ i18n
                     "search": "GÖZLEG",
                     "hukuk": "HUKUKNAMALAR",
                     "lyceum": "BAŞLANGYÇ HÜNÄR",
-                    "school": "OKUWLAR",
-                    "work": "IŞ",
+                    "school": "OKUW MEKDEPLER",
+                    "work": "IŞ ORUNLARY",
                 }
             },
             ru: {
@@ -83,7 +83,7 @@ i18n
                     "hukuk": "ПРАВОВЫЕ ДОКУМЕНТЫ",
                     "lyceum": "ЛИЦЕЙ",
                     "school": "ШКОЛЫ",
-                    "work": "РАБОТА",
+                    "work": "РАБОЧИЕ МЕСТА",
                 }
             }
 

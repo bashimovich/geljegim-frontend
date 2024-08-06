@@ -10,18 +10,23 @@ import DOMPurify from "dompurify";
 import { useTranslation } from 'react-i18next'
 import HumanReadableDate from '../../utils/HumanReadableDate'
 import RemoveRedEyeIcon from '@mui/icons-material/RemoveRedEye';
+import { ShimmerContentBlock } from 'shimmer-effects-react';
+
 
 
 function News() {
     const {t, i18n} = useTranslation()
     const [News, setNews ] = useState([]);
     const navigate = useNavigate()
+    const [NewsLoading, setNewsLoading ] = useState(true);
 
     function getNews() {
+        setNewsLoading(true)
         axiosInstance
             .get(`all-news`)
             .then((res) => {
                 setNews(res.data)
+                setNewsLoading(false)
             })
             .catch((err) => {
                 console.log(err);
@@ -46,6 +51,9 @@ function News() {
                 <div className="news__asside">
                     <div className="news__results">
                         {
+                            NewsLoading?
+                            <ShimmerContentBlock mode="light" thumbnailBorder={0} rounded={1} items={5} itemsGap={10} thumbnailHeight={150} thumbnailWidth={250} contentDetailsPosition="start" contentDetailTextLines={5} />:
+
                             News.map((item) => {return(
                                 <>
                                     <div className="result" key={item.id}>

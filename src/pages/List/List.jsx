@@ -11,6 +11,8 @@ import HumanReadableDate from '../../utils/HumanReadableDate';
 import DOMPurify from "dompurify";
 import CircularProgress from '@mui/material/CircularProgress';
 import { useTranslation } from 'react-i18next';
+import { ShimmerDiv, ShimmerTitle } from 'shimmer-effects-react';
+
 
 function List() {
     const {t, i18n} = useTranslation()
@@ -45,7 +47,56 @@ function List() {
             <Navigation />
             <div className="list__wrapper container">
                 {loading ? (
-                    <div className="loading__spinner"><CircularProgress /></div>
+                    <>
+                        <div>
+                            <ShimmerDiv mode="light" rounded={1} className='daily_four_img_shimmer_in_list' />
+                            <ShimmerTitle mode="light" line={2} gap={8} />  
+                        </div>
+                        <div>
+                            <ShimmerDiv mode="light" rounded={1} className='daily_four_img_shimmer_in_list' />
+                            <ShimmerTitle mode="light" line={2} gap={8} />  
+                        </div>
+                        <div>
+                            <ShimmerDiv mode="light" rounded={1} className='daily_four_img_shimmer_in_list' />
+                            <ShimmerTitle mode="light" line={2} gap={8} />  
+                        </div>
+                        <div>
+                            <ShimmerDiv mode="light" rounded={1} className='daily_four_img_shimmer_in_list' />
+                            <ShimmerTitle mode="light" line={2} gap={8} />  
+                        </div>
+                        <div>
+                            <ShimmerDiv mode="light" rounded={1} className='daily_four_img_shimmer_in_list' />
+                            <ShimmerTitle mode="light" line={2} gap={8} />  
+                        </div>
+                        <div>
+                            <ShimmerDiv mode="light" rounded={1} className='daily_four_img_shimmer_in_list' />
+                            <ShimmerTitle mode="light" line={2} gap={8} />  
+                        </div>
+                        <div>
+                            <ShimmerDiv mode="light" rounded={1} className='daily_four_img_shimmer_in_list' />
+                            <ShimmerTitle mode="light" line={2} gap={8} />  
+                        </div>
+                        <div>
+                            <ShimmerDiv mode="light" rounded={1} className='daily_four_img_shimmer_in_list' />
+                            <ShimmerTitle mode="light" line={2} gap={8} />  
+                        </div>
+                        <div>
+                            <ShimmerDiv mode="light" rounded={1} className='daily_four_img_shimmer_in_list' />
+                            <ShimmerTitle mode="light" line={2} gap={8} />  
+                        </div>
+                        <div>
+                            <ShimmerDiv mode="light" rounded={1} className='daily_four_img_shimmer_in_list' />
+                            <ShimmerTitle mode="light" line={2} gap={8} />  
+                        </div>
+                        <div>
+                            <ShimmerDiv mode="light" rounded={1} className='daily_four_img_shimmer_in_list' />
+                            <ShimmerTitle mode="light" line={2} gap={8} />  
+                        </div>
+                        <div>
+                            <ShimmerDiv mode="light" rounded={1} className='daily_four_img_shimmer_in_list' />
+                            <ShimmerTitle mode="light" line={2} gap={8} />  
+                        </div>
+                    </>
                 ) : (
                     articles?.map((item, index) => (
                         <div className="article__card" key={index}>
