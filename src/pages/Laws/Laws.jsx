@@ -8,6 +8,8 @@ import { axiosInstance } from '../../utils/axiosInstance'
 import DOMPurify from "dompurify";
 import CancelIcon from '@mui/icons-material/Cancel';
 import { useTranslation } from 'react-i18next'
+import { ShimmerTitle } from 'shimmer-effects-react';
+
 
 function Laws() {
     const {t, i18n} = useTranslation()
@@ -16,8 +18,10 @@ function Laws() {
     const [SearchNoResult, setSearchNoResult] = useState('')
     const [isActiveView , setisActiveView] = useState(false)
     const [pdfSrc , setpdfSrc] = useState()
+    const [LawsLoading , setLawsLoading] = useState(true)
 
     function getSearchResult(query) {
+        setLawsLoading(true)
         axiosInstance
             .get(`laws?search=${query}`)
             .then((res) => {
@@ -25,6 +29,7 @@ function Laws() {
                 if ((res.data).length > 0) {
                     setSearchNoResult('')
                     setSearchResult(res.data)
+                    setLawsLoading(false)
                 }else{
                     setSearchNoResult('Maglumat Tapylmady!')
                 }
@@ -35,6 +40,7 @@ function Laws() {
         
     }
     function getLaws(query) {
+        setLawsLoading(true)
         axiosInstance
             .get('laws')
             .then((res) => {
@@ -42,6 +48,7 @@ function Laws() {
                 if ((res.data).length > 0) {
                     setSearchNoResult('')
                     setSearchResult(res.data)
+                    setLawsLoading(false)
 
                 }else{
                     setSearchNoResult('Maglumat Tapylmady!')
@@ -96,6 +103,20 @@ function Laws() {
                                     <p>{SearchNoResult}</p>
                                 </div>
                                 {
+                                    LawsLoading?
+                                    <>
+                                        <ShimmerTitle mode="light" line={3} gap={8} />
+                                        <ShimmerTitle mode="light" line={3} gap={8} />
+                                        <ShimmerTitle mode="light" line={3} gap={8} />
+                                        <ShimmerTitle mode="light" line={3} gap={8} />
+                                        <ShimmerTitle mode="light" line={3} gap={8} />
+                                        <ShimmerTitle mode="light" line={3} gap={8} />
+                                        <ShimmerTitle mode="light" line={3} gap={8} />
+                                        <ShimmerTitle mode="light" line={3} gap={8} />
+                                        <ShimmerTitle mode="light" line={3} gap={8} />
+
+                                    </>:
+
                                     SearchResult.map((item) => {return(
                                         <div className="result" key={item.id}>
                                             <h1 onClick={() => handleClick(item.pdf)} dangerouslySetInnerHTML={{__html: DOMPurify.sanitize(

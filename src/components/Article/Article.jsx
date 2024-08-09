@@ -8,7 +8,7 @@ import { useTranslation } from 'react-i18next';
 function Article(props) {
   const {t, i18n} = useTranslation()
   return (
-    <div className='article-wrapper'>
+    <>
         <div className="article__image"   style={{ backgroundImage: `url(${props?.data.images_for_web[0].src})` }}></div>
         <div className="article__info">
             <p className="article__views"><span><RemoveRedEyeIcon /></span> {props?.data?.views}</p>
@@ -32,7 +32,7 @@ function Article(props) {
               props?.data?.content_en:null
               ),}}></p>
         </div>
-    </div>
+    </>
   )
 }
 

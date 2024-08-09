@@ -1,7 +1,6 @@
 import React, { Suspense, lazy } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import CircularProgress from '@mui/material/CircularProgress';
-import Laws from '../pages/Laws/Laws';
 
 // Lazy load the components
 const Home = lazy(() => import('./../pages/main/Home'));
@@ -11,6 +10,9 @@ const Search = lazy(() => import('./../pages/Search/Search'));
 const Media = lazy(() => import('./../pages/Media/Media'));
 const Docs = lazy(() => import('./../pages/Docs/Docs'));
 const News = lazy(() => import('./../pages/News/News'))
+const Vacancy = lazy(() => import('./../pages/Vacancy/Vacancy'))
+const Laws = lazy(() => import('../pages/Laws/Laws'))
+
 
 const LoadingComponent = () => (
   <div style={{
@@ -41,6 +43,7 @@ const MyRoutes = () => {
           <Route path="/laws" element={<Laws />} />
           <Route path="/docs" element={<Docs />} />
           <Route path="/news" element={<News />} />
+          <Route path="/vacancy" element={<Vacancy />} />
         </Routes>
       </Suspense>
     </BrowserRouter>

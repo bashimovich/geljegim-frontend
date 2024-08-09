@@ -20,6 +20,9 @@ function Navigation() {
     function goNews() {
         navigate('/news')
     }
+    function goVacancy() {
+        navigate('/vacancy')
+    }
 
     function goSearch() {
         navigate('/search')
@@ -111,7 +114,7 @@ function Navigation() {
                             </a>
                         </li>
                         <li className='parent__category'>
-                            <a href="#" target='_blank'>
+                            <a onClick={() => {goVacancy()}} target='_blank'>
                                 {t('work')}
                             </a>
                         </li>

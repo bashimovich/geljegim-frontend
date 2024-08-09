@@ -4,19 +4,23 @@ import { useNavigate } from 'react-router-dom';
 import { axiosInstance } from '../../utils/axiosInstance';
 import HumanReadableDate from '../../utils/HumanReadableDate'
 import { useTranslation } from 'react-i18next';
+import { ShimmerCategoryItems } from 'shimmer-effects-react';
 
 function Similar(props) {
     const {t, i18n} = useTranslation()
 
     const navigate  = useNavigate()
     const [Articles, setArticles] = useState(null)
+    const [LoadingArticles, setLoadingArticles] = useState(true)
 
     useEffect(() => {
         window.scroll(0,0)
+        setLoadingArticles(true)
         axiosInstance
             .get(`articles/via/${props.typear}/`)
             .then((res) => {
                 setArticles(res.data)
+                setLoadingArticles(false)
             })
             .catch((err) => {
                 console.log(err);
@@ -26,7 +30,7 @@ function Similar(props) {
        navigate('/article/', {state: id}) 
     }
   return (
-    <div className="daily__news__similar">
+        <>
         <div className="daily__header">
             <div className="daily__title">
                 <p>{t("related")}</p>
@@ -36,7 +40,13 @@ function Similar(props) {
             </div>
         </div> 
         <div className="daily__news__body">
-            {Articles?.map((item, index)=>{return (
+
+            {
+                LoadingArticles?
+
+                <ShimmerCategoryItems className='schools_shimmer' mode="light" itemsGap={20} items={6} />:
+            
+            Articles?.map((item, index)=>{return (
                 <div key={index} className="card__officiall__news">
                     {item.images_for_web && <div className="official__news__img" style={{ backgroundImage: `url(${item?.images_for_web[0].src})` }}></div>}
                     <div className="official__news_title">
@@ -57,7 +67,7 @@ function Similar(props) {
                 </div>
             )})}
         </div>
-    </div>
+        </>
   )
 }
 
