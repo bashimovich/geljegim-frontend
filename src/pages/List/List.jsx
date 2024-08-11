@@ -19,16 +19,20 @@ function List() {
     const navigate = useNavigate();
     const location = useLocation();
     const typear = location.state;
-    const [articles, setArticles] = useState(null);
+    const [articles, setArticles] = useState([]);
     const [loading, setLoading] = useState(true);
+    const [page, setPage] = useState(1);
+    const [hasMore, setHasMore] = useState(true);
 
     useEffect(() => {
-        window.scroll(0, 0);
+        setArticles([]);
+        setPage(1);
         setLoading(true);
         axiosInstance
-            .get(`articles/via/${typear}/`)
+            .get(`articles/via/${typear}/?page=1`)
             .then((res) => {
-                setArticles(res.data.results);
+                setArticles(res.data.results);  // Load new articles
+                setHasMore(res.data.next !== null);  // Check if there's more data to load
                 setLoading(false);
             })
             .catch((err) => {
@@ -36,6 +40,36 @@ function List() {
                 setLoading(false);
             });
     }, [typear]);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            if (window.innerHeight + document.documentElement.scrollTop !== document.documentElement.offsetHeight || loading || !hasMore) return;
+            setPage(prevPage => prevPage + 1);
+        };
+
+        window.addEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, [loading, hasMore]);
+
+    // This effect will handle the subsequent pages when scrolling
+    useEffect(() => {
+        if (page === 1) return;  // Don't run this effect on the initial load
+
+        setLoading(true);
+        axiosInstance
+            .get(`articles/via/${typear}/?page=${page}`)
+            .then((res) => {
+                setArticles(prevArticles => [...prevArticles, ...res.data.results]);  // Append new articles to existing ones
+                setHasMore(res.data.next !== null);
+                setLoading(false);
+            })
+            .catch((err) => {
+                console.log(err);
+                setLoading(false);
+            });
+    }, [page, typear]);
+
+
 
     function handleClick(id) {
         navigate('/article/', { state: id });
@@ -126,6 +160,11 @@ function List() {
                             </div>
                         </div>
                     ))
+                )}
+                {!hasMore && !loading && (
+                    <div className="end-message">
+                        <p>{t('No more articles to load')}</p>
+                    </div>
                 )}
             </div>
             <Footer />

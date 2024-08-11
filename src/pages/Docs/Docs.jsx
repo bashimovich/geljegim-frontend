@@ -85,10 +85,10 @@ function Docs() {
     <InfoPanel />
     <Navigation />
     <MarqueNews />
-        <div className="laws__wrapper">
+        <div className="Docs__wrapper">
             <div className="container">
-                <div className="laws__flex">
-                    <div className="laws__list">
+                <div className="Docss__flex">
+                    <div className="Docss__list">
                         <div className={isActiveView ? "search__asside active__viewer":'search__asside'}>
                             <div className='search__input'>
                                 <input type="text"
