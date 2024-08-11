@@ -34,7 +34,7 @@ function Daily() {
       axiosInstance
         .get(`main-article/`)
         .then((res) => {
-            setMainArticle(res?.data[0])
+            setMainArticle(res?.data.results[0])
             setLoadingMain(false)
         })
         .catch((err) => {
@@ -45,7 +45,7 @@ function Daily() {
         axiosInstance
         .get(`side-banner/`)
         .then((res) => {
-            setSideBanner(res?.data[0])
+            setSideBanner(res?.data.results[0])
             setLoadingSideBanner(false)
         })
         .catch((err) => {
@@ -57,7 +57,7 @@ function Daily() {
       axiosInstance
         .get(`four-article/`)
         .then((res) => {
-            setFourArticle(res.data)
+            setFourArticle(res?.data.results)
             setLoadingFour(false)
         })
         .catch((err) => {
@@ -195,7 +195,7 @@ function Daily() {
                                     )})                                
 
                             }
-                        </div>
+                         </div>
                     </div>
                 </div>
                 <CenteralBanner />

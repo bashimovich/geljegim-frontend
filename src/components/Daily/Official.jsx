@@ -16,7 +16,7 @@ function Official() {
         axiosInstance
             .get(`/official-article/`)
             .then((res) => {
-                setArticles(res.data)
+                setArticles(res?.data.results)
             })
             .catch((err) => {
                 console.log(err);

@@ -17,7 +17,7 @@ function Multimedia() {
         axiosInstance
             .get(`/medias`)
             .then((res) => {
-                setMultimediaArticle(res.data)
+                setMultimediaArticle(res.data.results)
                 setMultimediaLoading(false)
             })
             .catch((err) => {

@@ -28,7 +28,7 @@ function List() {
         axiosInstance
             .get(`articles/via/${typear}/`)
             .then((res) => {
-                setArticles(res.data);
+                setArticles(res.data.results);
                 setLoading(false);
             })
             .catch((err) => {

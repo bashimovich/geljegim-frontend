@@ -11,7 +11,7 @@ function CenteralBanner() {
       axiosInstance
         .get(`main-banner/`)
         .then((res) => {
-            setBanner(res?.data[0])
+            setBanner(res?.data.results[0])
             setLoadingCenterBanner(false)
         })
         .catch((err) => {

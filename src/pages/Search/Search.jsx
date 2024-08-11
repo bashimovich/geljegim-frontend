@@ -21,9 +21,9 @@ function Search() {
             .get(`articles?search=${query}`)
             .then((res) => {
                 setSearchResult([])
-                if ((res.data).length > 0) {
+                if ((res.data.results).length > 0) {
                     setSearchNoResult('')
-                    setSearchResult(res.data)
+                    setSearchResult(res.data.results)
 
                 }else{
                     setSearchNoResult('Maglumat Tapylmady!')

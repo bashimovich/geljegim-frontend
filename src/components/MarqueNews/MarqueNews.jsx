@@ -14,7 +14,7 @@ function MarqueNews() {
       axiosInstance
         .get("marque-articles/")
         .then((res) => {
-          setMarqueNews(res.data);
+          setMarqueNews(res.data.results);
         })
         .catch((err) => { console.log(err) })
     };

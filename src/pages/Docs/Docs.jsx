@@ -25,12 +25,13 @@ function Docs() {
             .get(`docs?search=${query}`)
             .then((res) => {
                 setSearchResult([])
-                if ((res.data).length > 0) {
+                if ((res.data.results).length > 0) {
                     setSearchNoResult('')
-                    setSearchResult(res.data)
+                    setSearchResult(res.data.results)
                     setDocsLoading(false)
                 }else{
                     setSearchNoResult('Maglumat Tapylmady!')
+                    setDocsLoading(false)
                 }
             })
             .catch((err) => {
@@ -44,13 +45,14 @@ function Docs() {
             .get('docs')
             .then((res) => {
                 setSearchResult([])
-                if ((res.data).length > 0) {
+                if ((res.data.results).length > 0) {
                     setSearchNoResult('')
-                    setSearchResult(res.data)
+                    setSearchResult(res.data.results)
                     setDocsLoading(false)
 
                 }else{
                     setSearchNoResult('Maglumat Tapylmady!')
+                    setDocsLoading(false)
                 }
             })
             .catch((err) => {

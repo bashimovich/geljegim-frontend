@@ -25,7 +25,7 @@ function News() {
         axiosInstance
             .get(`all-news`)
             .then((res) => {
-                setNews(res.data)
+                setNews(res.data.results)
                 setNewsLoading(false)
             })
             .catch((err) => {

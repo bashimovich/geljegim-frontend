@@ -26,7 +26,7 @@ function Media() {
         axiosInstance
             .get('/medias/')
             .then((res) => {
-                setMediaList(res.data)
+                setMediaList(res.data.results)
             })
             .catch((err) => {
                 console.log(err);

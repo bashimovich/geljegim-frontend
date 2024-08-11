@@ -26,12 +26,13 @@ function Laws() {
             .get(`laws?search=${query}`)
             .then((res) => {
                 setSearchResult([])
-                if ((res.data).length > 0) {
+                if ((res.data.results).length > 0) {
                     setSearchNoResult('')
-                    setSearchResult(res.data)
+                    setSearchResult(res.data.results)
                     setLawsLoading(false)
                 }else{
                     setSearchNoResult('Maglumat Tapylmady!')
+                    setLawsLoading(false)
                 }
             })
             .catch((err) => {
@@ -45,13 +46,14 @@ function Laws() {
             .get('laws')
             .then((res) => {
                 setSearchResult([])
-                if ((res.data).length > 0) {
+                if ((res.data.results).length > 0) {
                     setSearchNoResult('')
-                    setSearchResult(res.data)
+                    setSearchResult(res.data.results)
                     setLawsLoading(false)
 
                 }else{
                     setSearchNoResult('Maglumat Tapylmady!')
+                    setLawsLoading(false)
                 }
             })
             .catch((err) => {

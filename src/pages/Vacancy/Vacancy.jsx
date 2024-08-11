@@ -23,9 +23,9 @@ function Vacancy() {
     function getVacancy() {
         setVacancyLoading(true)
         axiosInstance
-            .get(`all-news`)
+            .get(`vacancy`)
             .then((res) => {
-                setVacancy(res.data)
+                setVacancy(res.data.results)
                 setVacancyLoading(false)
             })
             .catch((err) => {

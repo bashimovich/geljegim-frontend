@@ -26,7 +26,7 @@ function Schools() {
         axiosInstance
             .get(`homeuniver-article/`)
             .then((res) => {
-                setUniverArticle(res.data)
+                setUniverArticle(res.data.results)
                 setUniverLoading(false)
             })
             .catch((err) => {
@@ -36,7 +36,7 @@ function Schools() {
         axiosInstance
             .get(`homevacational-article/`)
             .then((res) => {
-                setVacationalArticle(res.data)
+                setVacationalArticle(res.data.results)
                 setVacationalLoading(false)
             })
             .catch((err) => {

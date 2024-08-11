@@ -19,7 +19,7 @@ function Similar(props) {
         axiosInstance
             .get(`articles/via/${props.typear}/`)
             .then((res) => {
-                setArticles(res.data)
+                setArticles(res.data.results)
                 setLoadingArticles(false)
             })
             .catch((err) => {
