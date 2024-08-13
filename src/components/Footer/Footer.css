@@ -1,5 +1,5 @@
 .footer__wrapper {
-    background-color: #0a8f08;
+    background-color: var(--primary-color);
     padding: 2rem 0;
     margin-top: 2rem;
     color: #fff;

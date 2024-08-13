@@ -45,7 +45,7 @@
 }
 
 .article__card:hover .article__card__title p {
-    color: #259b24;
+    color: var(--secondary-color);
     cursor: pointer;
 }
 

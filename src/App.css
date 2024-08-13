@@ -21,6 +21,12 @@
     border-radius: 10px !important;
 }
 
+:root {
+  --primary-color: #0a8f08;
+  --secondary-color: #2ecc71;
+  --text-color: #333333;
+}
+
 html,
 body {
     scrollbar-width: thin !important;

@@ -16,14 +16,14 @@
 
 .schools__header {
     padding: 5px 0;
-    border-bottom: 3px solid #259b24;
+    border-bottom: 3px solid var(--secondary-color);
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
 
 .schools__header p {
-    color: #259b24;
+    color: var(--secondary-color);
     outline: medium none;
     text-decoration: none;
     text-transform: uppercase;
@@ -35,12 +35,12 @@
 
 .schools__header p:hover,
 .schools__all a:hover {
-    color: #0d5302;
+    color: var(--hover-color);
     cursor: pointer;
 }
 
 .schools__all a {
-    color: #259b24;
+    color: var(--secondary-color);
     font-size: 1.2rem;
     text-transform: capitalize;
 }
@@ -77,12 +77,12 @@
 }
 
 .schools__card__name:hover {
-    color: #259b24;
+    color: var(--secondary-color);
     cursor: pointer;
 }
 
 .schools__card__name:hover~.schools__card__description {
-    color: #259b24;
+    color: var(--secondary-color);
     cursor: pointer;
 }
 

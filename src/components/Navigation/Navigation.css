@@ -1,5 +1,5 @@
 .navigation__wrapper {
-    background-color: #0a8f08;
+    background-color: var(--primary-color);
     margin: 0;
     padding: 0;
     position: sticky;
@@ -60,23 +60,23 @@
 
 .parent__category:hover {
     background-color: #fff;
-    color: #0a8f08;
+    color: var(--primary-color);
     cursor: pointer;
 }
 
 .parent__category:hover>a {
     background-color: #fff;
-    color: #0a8f08;
+    color: var(--primary-color);
 }
 
 .parent__category:hover>svg {
     background-color: #fff;
-    color: #0a8f08;
+    color: var(--primary-color);
 }
 
 .navigation__menu ul li a.active {
     background-color: #fff;
-    color: #0a8f08;
+    color: var(--primary-color);
 }
 
 .navigation__menu ul li svg {
@@ -131,7 +131,7 @@
 
 .sub__category p:hover {
     color: #fff;
-    background-color: #0a8f08;
+    background-color: var(--primary-color);
 }
 
 @media only screen and (max-width: 1070px) {
@@ -178,7 +178,7 @@
         top: 3.1rem;
         flex-direction: column;
         z-index: 10;
-        background-color: #0a8f08;
+        background-color: var(--primary-color);
         padding: 0;
         margin: 0;
         width: 100%;

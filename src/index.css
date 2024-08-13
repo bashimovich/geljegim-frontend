@@ -1,6 +1,5 @@
 :root {
     font-size: 10px;
-    /* Adjust as needed */
 }
 
 body {
@@ -26,4 +25,9 @@ p {
     display: flex;
     align-items: center;
     justify-content: center;
+}
+:root {
+  --primary-color: #0a8f08;
+  --secondary-color: #259b24;
+  --hover-color: #0d5302;
 }

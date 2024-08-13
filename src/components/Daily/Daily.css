@@ -24,14 +24,14 @@
 
 .daily__header {
     padding: 5px 0;
-    border-bottom: 3px solid #259b24;
+    border-bottom: 3px solid var(--secondary-color);
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
 
 .daily__header p {
-    color: #259b24;
+    color: var(--secondary-color);
     outline: medium none;
     text-decoration: none;
     text-transform: uppercase;
@@ -43,12 +43,12 @@
 
 .daily__header p:hover,
 .daily__all a:hover {
-    color: #0d5302;
+    color: var(--secondary-color);
     cursor: pointer;
 }
 
 .daily__all a {
-    color: #259b24;
+    color: var(--secondary-color);
     font-size: 1.2rem;
     text-transform: capitalize;
 }
@@ -83,7 +83,7 @@
 .four__box__tag__date a {
     text-decoration: none;
     padding: .5rem .8rem;
-    background-color: #0d5302;
+    background-color: var(--hover-color);
     color: #fff;
     font-size: 1.2rem;
 }
@@ -104,7 +104,7 @@
 }
 
 .main__title p:hover {
-    color: #259b24;
+    color: var(--secondary-color);
     cursor: pointer;
 }
 
@@ -144,7 +144,7 @@
 }
 
 .four__box__description p:hover {
-    color: #259b24;
+    color: var(--secondary-color);
     cursor: pointer;
 }
 
@@ -204,7 +204,7 @@
 
 .official__news_title p.offical__news__description:hover {
     cursor: pointer;
-    color: #259b24;
+    color: var(--secondary-color);
 }
 
 .daily__news__bottom__banner {
@@ -214,7 +214,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #0d5302;
+    background-color: var(--hover-color);
 }
 
 .daily__news__bottom__banner__img {

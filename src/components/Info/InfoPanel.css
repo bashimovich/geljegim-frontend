@@ -15,7 +15,7 @@
     margin-right: 17px;
 }
 .info__card p, svg{
-    /* color: #0a8f08; */
+    /* color: var(--primary-color); */
     color: #919094;
     font-size: 14px;
     padding: 3px 0;
@@ -40,11 +40,11 @@
 }
 
 .lang:hover{
-    color: #0a8f08;
+    color: var(--primary-color);
     cursor: pointer;
 }
 .lang.active{
-    color: #0a8f08;
+    color: var(--primary-color);
 }
 @media only screen and (max-width: 1040px) {
     .languages__list p{
