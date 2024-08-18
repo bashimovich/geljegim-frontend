@@ -25,9 +25,10 @@ p {
     display: flex;
     align-items: center;
     justify-content: center;
+  	--primary-color: #0a8f08;
 }
 :root {
-  --primary-color: #0a8f08;
+  --primary-color: red;
   --secondary-color: #259b24;
   --hover-color: #0d5302;
 }
